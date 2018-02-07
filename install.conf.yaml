@@ -7,8 +7,7 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/.config/nvim, Creating nvim config directory]
   - [mkdir -p ~/.config/fish, Creating fish-shell config directory]
-  - [curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim, Installing vim-plug]
+  - [curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim, Installing vim-plug]
 
 - link:
     ~/.dotfiles: ''
