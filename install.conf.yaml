@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+- clean: ['~']
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+  - [mkdir -p ~/.config/nvim, Creating nvim config directory]
+  - [mkdir -p ~/.config/fish, Creating fish-shell config directory]
+
+- link:
+    ~/.dotfiles: ''
+    ~/.tmux.conf: tmux.conf
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/fish/config.fish:fish/config.fish
