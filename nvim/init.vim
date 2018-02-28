@@ -11,6 +11,9 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'NLKNguyen/papercolor-theme'
 
 
@@ -60,15 +63,15 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader>i <Plug>(go-info)
-
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
-let g:go_auto_type_info = 1
-
 
 "end vim-go settings
 
 let g:python2_host_prog = '/usr/local/bin/python'
+
+" vim-rhubarb
+let g:github_enterprise_urls = ['https://git.ouroath.com']
+
 
