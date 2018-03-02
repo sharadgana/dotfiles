@@ -15,7 +15,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'NLKNguyen/papercolor-theme'
-
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
