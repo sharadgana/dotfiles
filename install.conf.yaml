@@ -8,6 +8,7 @@
   - [git submodule update --init --recursive, Installing submodules]
   - [mkdir -p ~/.config/nvim, Creating nvim config directory]
   - [mkdir -p ~/.config/fish, Creating fish-shell config directory]
+  - [git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm, Installing tmux plugin manager]
 
 - link:
     ~/.dotfiles: ''
