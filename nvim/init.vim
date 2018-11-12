@@ -11,12 +11,18 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
+Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+Plug 'maralla/completor.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -25,7 +31,14 @@ set autowrite
 
 set termguicolors
 set background=light
-colorscheme PaperColor
+syntax on
+set number
+set hidden " Required for specific actions that require multiple buffers
+colorscheme seoul256
+hi Cursor ctermbg=15 ctermfg=8
+hi iCursor ctermbg=15 ctermfg=8
+
+
 
 " Spaces & Tabs {{{
 set tabstop=4       " number of visual spaces per TAB
@@ -44,6 +57,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:LanguageClient_serverCommands = {
+    \ 'go': ['go-langserver']
+    \ }
 
 "vim-go settings
 map <C-n> :cnext<CR>
@@ -71,8 +87,24 @@ let g:go_highlight_types = 1
 "end vim-go settings
 
 let g:python2_host_prog = '/usr/local/bin/python'
+let g:loaded_python_provider = 1
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " vim-rhubarb
 let g:github_enterprise_urls = ['https://git.ouroath.com']
+
+" sourcegraph
+nnoremap  h :call LanguageClient_textDocument_hover()
+nnoremap  de :call LanguageClient_textDocument_definition()
+nnoremap  fr :call LanguageClient_textDocument_references()
+nnoremap  r :call LanguageClient_textDocument_rename()
+nnoremap  m :call LanguageClient_contextMenu()
+
+" Nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+"maralla completor
+let g:completor_gocode_binary = "$HOME/workspace/go/bin/gocode"
 
 
