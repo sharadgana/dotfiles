@@ -14,3 +14,4 @@
     ~/.config/nvim/init.vim: nvim/init.vim
     ~/.config/fish/config.fish: fish/config.fish
     ~/.zshrc: zsh/.zshrc
+    ~/.tmux.conf: tmux/.tmux.conf
