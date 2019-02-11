@@ -11,6 +11,7 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'fatih/vim-go'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'SirVer/ultisnips'
+Plug 'neomake/neomake', { 'for': ['rust'] }
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
@@ -23,6 +24,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'maralla/completor.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -32,6 +35,7 @@ set autowrite
 set termguicolors
 set background=light
 syntax on
+set linespace=3 
 set number
 set hidden " Required for specific actions that require multiple buffers
 colorscheme seoul256
@@ -95,7 +99,7 @@ let g:github_enterprise_urls = ['https://git.ouroath.com']
 
 " sourcegraph
 nnoremap  h :call LanguageClient_textDocument_hover()
-nnoremap  de :call LanguageClient_textDocument_definition()
+"nnoremap  de :call LanguageClient_textDocument_definition()
 nnoremap  fr :call LanguageClient_textDocument_references()
 nnoremap  r :call LanguageClient_textDocument_rename()
 nnoremap  m :call LanguageClient_contextMenu()
@@ -107,4 +111,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 "maralla completor
 let g:completor_gocode_binary = "$HOME/workspace/go/bin/gocode"
 
+"racer 
+let g:racer_cmd = "/home/user/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
 

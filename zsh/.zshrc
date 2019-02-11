@@ -77,8 +77,8 @@ source $ZSH/oh-my-zsh.sh
 # Powerline Configuration 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline status)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext)
-POWERLEVEL9K_KUBECONTEXT_BACKGROUND='190'
-POWERLEVEL9K_KUBECONTEXT_FOREGROUND='232'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='none'
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='008'
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_MODE='nerdfont-complete'
 
@@ -144,3 +144,7 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export PATH="$HOME/workspace/yahoo/kubectl_conf:$PATH"
 alias vim=nvim
 export EDITOR=nvim
+
+export SSH_AUTH_SOCK=/Users/sharadg/.yubiagent/sock
+
+export SSH_AUTH_SOCK=/Users/sharadg/.yubiagent/sock
