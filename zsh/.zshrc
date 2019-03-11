@@ -7,7 +7,8 @@ export ZSH=/Users/sharadg/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="spaceship"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -36,7 +37,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -85,7 +86,8 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 
 #Colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
-alias ls='colorls -lA --sd'
+alias ls='colorls -lA --sd --light'
+alias ll='colorls -lA --sd --light'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -148,3 +150,15 @@ export EDITOR=nvim
 export SSH_AUTH_SOCK=/Users/sharadg/.yubiagent/sock
 
 export SSH_AUTH_SOCK=/Users/sharadg/.yubiagent/sock
+
+kns() {
+    kubectl config set-context $(kubectl config current-context) --namespace=$1
+}
+
+krand() {
+     kubectl exec -it $(kubectl get pods | grep $1 | head -n 1 | awk {'print $1'}) -c $1 bash
+ }
+
+ kspec() {
+     kubectl exec -it $1 -c $2 bash
+ }
